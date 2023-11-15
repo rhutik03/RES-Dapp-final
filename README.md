@@ -1,13 +1,13 @@
 # RES-Dapp-final
 
 
-##Installing dependencies
+Installing dependencies
 npm install
 
-##Deploying contract
+Deploying contract
 cd ./res-contract
 start ganache in terminal
 deploy using truffle deploy in another terminal
 
-##Start the dApp
+Start the dApp
 npm start
