@@ -295,7 +295,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.16",
-  "updatedAt": "2023-11-15T18:06:02.683Z",
+  "updatedAt": "2023-11-15T18:29:44.190Z",
   "devdoc": {
     "details": "Interface of the ERC165 standard, as defined in the\r [EIP](https://eips.ethereum.org/EIPS/eip-165).\r  * Implementers can declare support of contract interfaces, which can then be\r queried by others (`ERC165Checker`).\r  * For an implementation, see `ERC165`.\r",
     "methods": {

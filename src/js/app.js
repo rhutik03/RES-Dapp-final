@@ -232,8 +232,8 @@ function build() {
     var RESInstance;
     contracts.RealEstate.deployed().then(function(instance){
         RESInstance = instance;
-        var asset_id = $("#assess_asset_id").val();
-        var asset_value = $("#assess_value").val();
+        var asset_id = $("#build_asset_id").val();
+        var asset_value = $("#build_value").val();
         var txObj = {from: currentAccount};
         return RESInstance.build(parseInt(asset_id), parseInt(asset_value), txObj);
     }).then(function(result){

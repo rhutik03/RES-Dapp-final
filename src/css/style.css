@@ -55,6 +55,6 @@
 
 .single{
     display: flex !important;
-    justify-content: center;
+    justify-content: space-between !important;
     align-items: center;
 }
