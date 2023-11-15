@@ -71,6 +71,7 @@ function bindEvents() {
     $(document).on("click", "#depreciate_asset", depreciate);
     $(document).on("click", "#approve_asset", approveAsset);
     $(document).on("click", "#transfer_asset", transferAsset);
+    $(document).on("click", "#build_asset", build);
     populateAddresses();
 }
 
@@ -219,6 +220,28 @@ function appreciate() {
         console.log("appreciate() => ", result.receipt.status);  // 0x01 = true ~ Success
     }).catch(function(err){
         console.log("Error in appreciate() : ", err.message);
+    });
+}
+
+function build() {
+    // only owner!
+    if($("#assess_asset_id").val() === "" || $("#assess_value").val() === "") {
+        alert("Please Enter all Fields!");
+        return false;
+    }
+    var RESInstance;
+    contracts.RealEstate.deployed().then(function(instance){
+        RESInstance = instance;
+        var asset_id = $("#assess_asset_id").val();
+        var asset_value = $("#assess_value").val();
+        var txObj = {from: currentAccount};
+        return RESInstance.build(parseInt(asset_id), parseInt(asset_value), txObj);
+    }).then(function(result){
+        location.reload();  //  F5 ~ refresh
+        fetchAllAssets();
+        console.log("build() => ", result.receipt.status);  // 0x01 = true ~ Success
+    }).catch(function(err){
+        console.log("Error in build() : ", err.message);
     });
 }
 

@@ -183,6 +183,14 @@ contract RES is ERC721 {
         assetMap[assetId] = Asset(oldAsset.assetId, oldAsset.price - value);   // value , price : Eth
     }
 
+    function build(uint256 assetId,uint256 value) public{
+        address owner = ownerOf(assetId);
+        require(msg.sender==owner,"Only Owner can build on asset");    
+        
+        Asset memory oldAsset = assetMap[assetId];
+        assetMap[assetId] = Asset(oldAsset.assetId, oldAsset.price + value);   // value , price : Eth
+    }
+
     function getAssetsSize() public view returns(uint256) {
         return assetCount;
     }
